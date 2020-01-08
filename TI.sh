@@ -4,6 +4,28 @@ ho () {
 	read
 	TI
 	}
+	fake-else () {
+		cd ~/TI-Script
+		if [ -e .fake-storage ];then
+		rm -Rf .fake2 >> /dev/null 2>&1
+		mkdir .fake2
+		cp -f .c.sh ~/TI-Script/.fake2
+		cd .fake2
+		bash .c.sh
+		else
+		echo
+		fi
+		}
+		el () {
+			cd ~/TI-Script
+			if [ -e .c.sh ];then
+			echo
+			else
+			unzip b.zip
+			fi
+			}
+		
+		
 ip () {
 	printf "Your Ip :- "|lolcat
 	curl ifconfig.me
@@ -56,7 +78,7 @@ ip () {
 							}
 							full-s () {
 								cd ~/TI-Script
-								unzip b.zip
+								el
 								bash .b.sh
 								ho
 								}
@@ -71,8 +93,9 @@ ip () {
 										}
 										full-fake () {
 											cd ~/TI-Script
-											unzip b.zip
+											el
 											termux-setup-storage
+											fake-else
 											mkdir .fake-storage
 											cp -f .c.sh ~/TI-Script/.fake-storage
 											cd .fake-storage
