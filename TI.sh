@@ -55,6 +55,7 @@ ip () {
 							ho
 							}
 							full-s () {
+								cd ~/TI-Script
 								unzip b.zip
 								bash .b.sh
 								ho
@@ -68,6 +69,16 @@ ip () {
 										print " Your Version :- \n\n"
 										uname -a
 										}
+										full-fake () {
+											cd ~/TI-Script
+											unzip b.zip
+											termux-setup-storage
+											mkdir .fake-storage
+											cp -f .c.sh ~/TI-Script/.fake-storage
+											cd .fake-storage
+											bash .c.sh
+											ho
+											}
 cd $PREFIX/bin
 if [ -e toilet ];then
 echo
@@ -112,7 +123,8 @@ printf "	$hara [ $sada 7 $hara ] $pila Your architecture\n"
 printf "	$hara [ $sada 8 $hara ] $pila Toilet filter list\n"
 printf "	$hara [ $sada 9 $hara ] $pila Toilet export list\n"
 printf "	$hara [ $sada 10 $hara ] $pila Storage full\n"
-printf "	$hara [ $sada 11 $hara ] $pila Exit\n\n\n"
+printf "	$hara [ $sada 11 $hara ] $pila Termux-Fake-Storage \n"
+printf "	$hara [ $sada 12 $hara ] $pila Exit\n\n\n"
 echo -e -n "\033[93m TI@(\033[91m Script\033[93m ) >>  "
 read a
 case $a in
@@ -126,6 +138,7 @@ case $a in
 8)filter ;;
 9)export ;;
 10)full-s ;;
-11)exit ;;
+11)full-fake ;;
+12)exit ;;
 *)TI ;;
 esac
