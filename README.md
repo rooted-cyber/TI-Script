@@ -1,7 +1,7 @@
 # TI script
 
-<img src="https://github.com/rooted-cyber/TI-Script/raw/master/Ti.png" style="width:300px;height:400px;">
-<img src="https://github.com/rooted-cyber/TI-Script/raw/master/Ti2.png" style="width:300px;height:400px;">
+<img src="https://github.com/rooted-cyber/TI-Script/raw/master/images/Ti.png" style="width:300px;height:400px;">
+<img src="https://github.com/rooted-cyber/TI-Script/raw/master/images/Ti2.png" style="width:300px;height:400px;">
 <pre>
  $ apt update
  $ apt upgrade
