@@ -1,6 +1,9 @@
 folder () {
 	cd $PREFIX/bin
 	}
+	fl() {
+		cd ~/TI-Script
+		}
 	ch () {
 		folder
 		if [ -e random ];then
@@ -10,6 +13,22 @@ folder () {
 		chmod 777 $PREFIX/bin/random
 		fi
 		}
+		spe() {
+			echo
+			echo -e "\033[1;96m Checking your internet speed .....\n"
+			sp="$(speedtest > /dev/null 2>&1)" > /dev/null 2>&1
+			printf "$sp"|grep -e "Download"
+			if [ -z $printf ];then
+			printf "\033[1;91m First connect to internet !!!\n\n"
+			exit
+			fi
+			printf "\033[1;92m Your downloading speed :- \033[1;97m"
+			printf "$sp"|grep -e "Download"
+			printf "\n\n\033[1;92m Your uploading speed :- \033[1;97m"
+			printf "$sp"|grep -e "Upload"
+			echo
+			echo
+			}
 		p-c() {
 			folder
 			if [ -e python ];then
@@ -41,6 +60,13 @@ folder () {
 			random
 			printf "\n\n Installing curl \n"
 			pkg install curl
+			fi
+			folder
+			if [ -e speedtest ];then
+			echo
+			else
+			fl
+			pip install -r requirement.txt
 			fi
 			}
 banner() {
@@ -135,20 +161,18 @@ banner() {
 menu () {
 	banner
 	printf "\n\033[1;91m[\033[0m1\033[1;91m]\033[1;96m Your Phone information\n"
-	printf "\033[1;91m[\033[0m2\033[1;91m]\033[1;96m Check custom directory size\033[1;91m (\033[0m/sdcard\033[1;91m)\n"
-	printf "\033[1;91m[\033[0m3\033[1;91m]\033[1;96m Check custom directory size\033[1;91m (\033[0m$HOME\033[1;91m)\n"
-	printf "\033[1;91m[\033[0m4\033[1;91m]\033[1;96m Storage Full\n"
-	printf "\033[1;91m[\033[0m5\033[1;91m]\033[1;96m Termux Fake Storage\n"
-	printf "\033[1;91m[\033[0m6\033[1;91m]\033[1;96m Exit\n\n\n"
+	printf "\033[1;91m[\033[0m2\033[1;91m]\033[1;96m Check internet speed\n"
+	printf "\033[1;91m[\033[0m3\033[1;91m]\033[1;96m Check custom directory size\033[1;91m (\033[0m/sdcard\033[1;91m)\n"
+	printf "\033[1;91m[\033[0m4\033[1;91m]\033[1;96m Check custom directory size\033[1;91m (\033[0m$HOME\033[1;91m)\n"
+	printf "\033[1;91m[\033[0m5\033[1;91m]\033[1;96m Exit\n\n\n"
 	echo -e -n "\033[1;93mTI\033[0m@\033[1;92mScript\033[1;97m -->> "
 	read a
 	case $a in
 	1)phone ;;
-	2)custom ;;
-	3)c2 ;;
-	4)full-s ;;
-	5)full-fake ;;
-	6)exit ;;
+	2)spe ;;
+	3)custom ;;
+	4)c2 ;;
+	5)exit ;;
 	*)menu ;;
 	esac
 	}
