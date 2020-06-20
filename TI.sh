@@ -16,13 +16,8 @@ folder () {
 		spe() {
 			echo
 			echo -e "\033[1;96m Checking your internet speed .....\n"
-			sp="$(speedtest > /dev/null 2>&1)" > /dev/null 2>&1
-			printf "$sp"|grep -e "Download"
-			if [ -z $printf ];then
-			printf "\033[1;91m First connect to internet !!!\n\n"
-			exit
-			fi
-			printf "\033[1;92m Your downloading speed :- \033[1;97m"
+			sp="$(speedtest)"
+			printf "\n\033[1;92m Your downloading speed :- \033[1;97m"
 			printf "$sp"|grep -e "Download"
 			printf "\n\n\033[1;92m Your uploading speed :- \033[1;97m"
 			printf "$sp"|grep -e "Upload"
