@@ -93,9 +93,21 @@ banner() {
 			unzip b.zip
 			fi
 			}
+			int() {
+				cd ~
+				wget https://raw.githubusercontent.com/rooted-cyber/TI-Script/master/requirement.txt > /dev/null 2>&1
+				cd ~
+				if [ -e requirement.txt ];then
+				printf "\033[1;96m Internet is connected"
+				rm -f *txt > /dev/null 2>&1
+				else
+				printf "\033[1;91m Not connected to internet"
+				fi
+				}
 			phone () {
 				banner
-				
+				printf "\n\n\033[1;92m Checking Internet .... :\033[1;97m "
+				int
 				kernal="$(uname -r)"
 				ver="$(getprop ro.build.version.release)"
 				sdk="$(getprop ro.build.version.sdk)"
@@ -104,17 +116,28 @@ banner() {
 				phone2="$(getprop ro.product.brand)"
 				phone="$(getprop ro.product.name)"
 				ip="$(curl -s -N ifconfig.me)"
-				
-				
+				time="$(date +"%r")"
+				date="$(date +"%F")"
+				battery="$(termux-battery-status|grep -e "percentage")"
+				locate="$(termux-location|grep -e "lat" 	-e "long")"
+				allo() {
+					if [ -z $locate ];then
+					printf "\033[1;91 Allow permission to see location\n"
+					fi
+					}
 				printf "\n\n\033[1;92m Your phone name :\033[0m $phone2\n"
 				printf "\033[1;92m Your phone name & modal :\033[0m $phone\n"
-				printf "\033[1;92m Android Version :\033[0m $ver\n"
+				printf "\033[1;92m Android Version :\033[0m Android version $ver\n"
 				printf "\033[1;92m CPU :\033[0m $cpu\n"
 				printf "\033[1;92m Architecture :\033[0m $arch\n"
 				printf "\033[1;92m SDK :\033[0m SDK$sdk\n"
 				printf "\033[1;92m Kernal :\033[0m $kernal\n"
 				
 				printf "\033[1;92m Your ip :\033[1;97m $ip\n"
+				printf "\033[1;92m Time :\033[1;97m $time\n"
+				printf "\033[1;92m Date :\033[1;97m $date\n"
+				printf "\033[1;92m Battery :\033[1;97m $battery\n"
+				printf "\033[1;92m Your location :\033[1;97m $locate\n"
 				}
 				c2() {
 					echo
@@ -153,13 +176,57 @@ banner() {
 											cd .fake-storage
 											bash .c.sh
 											}
+											check() {
+												cd $PREFIX/bin
+												if [ -e $a ];then
+												sleep 1
+												printf "\033[1;96m\n $a is installed\n\n"
+												else
+												sleep 1
+												printf "\033[1;91m\n $a is not install.\n"
+												fi
+												}
+											pack() {
+												echo
+												echo -e -n "\033[1;93m Enter command :\033[1;97m "
+												read a
+												if [ $a ];then
+												check
+												fi
+												}
+												contacts() {
+													banner
+													termux-contact-list
+													}
+													lat() {
+														echo
+														echo -e -n "\033[1;96m Enter latitude :\033[0m "
+														read b
+														if [ $b ];then
+														sleep 0.50
+														echo
+														echo -e -n "\033[1;96m Enter longitude :\033[0m "
+														fi
+														read c
+														if [ ! -z $c ];then
+														echo
+														sleep 1
+														printf "\033[1;92m Google maps : \033[1;97m https://www.google.com/maps/place/$b+$c/\n\n"
+														fi
+														}
 menu () {
 	banner
 	printf "\n\033[1;91m[\033[0m1\033[1;91m]\033[1;96m Your Phone information\n"
 	printf "\033[1;91m[\033[0m2\033[1;91m]\033[1;96m Check internet speed\n"
 	printf "\033[1;91m[\033[0m3\033[1;91m]\033[1;96m Check custom directory size\033[1;91m (\033[0m/sdcard\033[1;91m)\n"
 	printf "\033[1;91m[\033[0m4\033[1;91m]\033[1;96m Check custom directory size\033[1;91m (\033[0m$HOME\033[1;91m)\n"
-	printf "\033[1;91m[\033[0m5\033[1;91m]\033[1;96m Exit\n\n\n"
+	printf "\033[1;91m[\033[0m5\033[1;91m]\033[1;96m Checking packages\n"
+	printf "\033[1;91m[\033[0m6\033[1;91m]\033[1;96m Contacts\n"
+	printf "\033[1;91m[\033[0m7\033[1;91m]\033[1;96m Latitude or longitude covert into google map\n"
+	printf "\033[1;91m[\033[0m8\033[1;91m]\033[1;96m Exit\n\n\n"
+	
+	
+	
 	echo -e -n "\033[1;93mTI\033[0m@\033[1;92mScript\033[1;97m -->> "
 	read a
 	case $a in
@@ -167,7 +234,10 @@ menu () {
 	2)spe ;;
 	3)custom ;;
 	4)c2 ;;
-	5)exit ;;
+	5)pack ;;
+	6)contacts ;;
+	7)lat ;;
+	8)exit ;;
 	*)menu ;;
 	esac
 	}
