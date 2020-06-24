@@ -68,7 +68,6 @@ folder () {
 			echo
 			else
 			pkg install termux-api
-			read
 			fi
 			}
 banner() {
