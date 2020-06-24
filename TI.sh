@@ -64,10 +64,11 @@ folder () {
 			pip install -r requirement.txt
 			fi
 			folder
-			if [ -e termux-api ];then
+			if [ -e termux-location ];then
 			echo
 			else
 			pkg install termux-api
+			read
 			fi
 			}
 banner() {
