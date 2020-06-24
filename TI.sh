@@ -63,6 +63,12 @@ folder () {
 			fl
 			pip install -r requirement.txt
 			fi
+			folder
+			if [ -e termux-api ];then
+			echo
+			else
+			pkg install termux-api
+			fi
 			}
 banner() {
 	clear
