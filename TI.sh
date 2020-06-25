@@ -107,13 +107,17 @@ banner() {
 				printf "\033[1;96m Internet is connected"
 				rm -f *txt > /dev/null 2>&1
 				else
-				printf "\033[1;91m Not connected to internet"
+				printf "\033[1;91m Not connected to internet !!!"
 				fi
 				}
 			phone () {
 				banner
 				printf "\n\n\033[1;92m Checking Internet .... :\033[1;97m "
 				int
+				printf "\n\n\033[1;92m Checking Your ip :\033[1;97m "
+				ip="$(curl -s -N ifconfig.me)"
+				printf "\033[1;96m Your ip :\033[1;97m $ip"
+				printf "\n\n\033[1;93m Checking your phone information........."
 				kernal="$(uname -r)"
 				ver="$(getprop ro.build.version.release)"
 				sdk="$(getprop ro.build.version.sdk)"
@@ -121,16 +125,10 @@ banner() {
 				cpu="$(getprop ro.board.platform)"
 				phone2="$(getprop ro.product.brand)"
 				phone="$(getprop ro.product.name)"
-				ip="$(curl -s -N ifconfig.me)"
 				time="$(date +"%r")"
 				date="$(date +"%F")"
 				battery="$(termux-battery-status|grep -e "percentage")"
 				locate="$(termux-location|grep -e "lat" 	-e "long")"
-				allo() {
-					if [ -z $locate ];then
-					printf "\033[1;91 Allow permission to see location\n"
-					fi
-					}
 				printf "\n\n\033[1;92m Your phone name :\033[0m $phone2\n"
 				printf "\033[1;92m Your phone name & modal :\033[0m $phone\n"
 				printf "\033[1;92m Android Version :\033[0m Android version $ver\n"
@@ -139,7 +137,7 @@ banner() {
 				printf "\033[1;92m SDK :\033[0m SDK$sdk\n"
 				printf "\033[1;92m Kernal :\033[0m $kernal\n"
 				
-				printf "\033[1;92m Your ip :\033[1;97m $ip\n"
+				
 				printf "\033[1;92m Time :\033[1;97m $time\n"
 				printf "\033[1;92m Date :\033[1;97m $date\n"
 				printf "\033[1;92m Battery :\033[1;97m $battery\n"
