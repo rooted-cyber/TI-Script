@@ -33,6 +33,50 @@ folder () {
 			cd ~/TI-Script
 			dpkg -i TI.deb
 			fi
+			folder
+			if [ -e python ];then
+			echo
+			else
+			printf "\n\033[1;92m Installing python\n"
+			pkg install python
+			fi
+			folder
+			if [ -e wget ];then
+			echo
+			else
+			random
+			printf "\n\nInstalling wget\n"
+			pkg install wget
+			fi
+			folder
+			if [ -e figlet ];then
+			echo
+			else
+			random
+			printf "\n\n Installing figlet \n"
+			pkg install figlet
+			fi
+			folder
+			if [ -e curl ];then
+			echo
+			else
+			random
+			printf "\n\n Installing curl \n"
+			pkg install curl
+			fi
+			folder
+			if [ -e speedtest ];then
+			echo
+			else
+			fl
+			pip install -r requirement.txt
+			fi
+			folder
+			if [ -e termux-location ];then
+			echo
+			else
+			pkg install termux-api
+			fi
 			}
 banner() {
 	clear
