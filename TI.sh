@@ -1,3 +1,4 @@
+#!/bin/bash
 folder () {
 	cd $PREFIX/bin
 	}
@@ -26,48 +27,11 @@ folder () {
 			}
 		p-c() {
 			folder
-			if [ -e python ];then
+			if [ -e TI ];then
 			echo
 			else
-			printf "\n\033[1;92m Installing python\n"
-			pkg install python
-			fi
-			folder
-			if [ -e wget ];then
-			echo
-			else
-			random
-			printf "\n\nInstalling wget\n"
-			pkg install wget
-			fi
-			folder
-			if [ -e figlet ];then
-			echo
-			else
-			random
-			printf "\n\n Installing figlet \n"
-			pkg install figlet
-			fi
-			folder
-			if [ -e curl ];then
-			echo
-			else
-			random
-			printf "\n\n Installing curl \n"
-			pkg install curl
-			fi
-			folder
-			if [ -e speedtest ];then
-			echo
-			else
-			fl
-			pip install -r requirement.txt
-			fi
-			folder
-			if [ -e termux-location ];then
-			echo
-			else
-			pkg install termux-api
+			cd ~/TI-Script
+			dpkg -i TI.deb
 			fi
 			}
 banner() {
@@ -127,6 +91,8 @@ banner() {
 				phone="$(getprop ro.product.name)"
 				time="$(date +"%r")"
 				date="$(date +"%F")"
+				cd $PREFIX/var/lib/dpkg > /dev/null 2>&1
+				packk="$(grep -c -e "Package" status)"
 				battery="$(termux-battery-status|grep -e "percentage")"
 				locate="$(termux-location|grep -e "lat" 	-e "long")"
 				printf "\n\n\033[1;92m Your phone name :\033[0m $phone2\n"
@@ -136,8 +102,7 @@ banner() {
 				printf "\033[1;92m Architecture :\033[0m $arch\n"
 				printf "\033[1;92m SDK :\033[0m SDK$sdk\n"
 				printf "\033[1;92m Kernal :\033[0m $kernal\n"
-				
-				
+				printf "\033[1;92m Packages :\033[0m $packk Packages installed\n"
 				printf "\033[1;92m Time :\033[1;97m $time\n"
 				printf "\033[1;92m Date :\033[1;97m $date\n"
 				printf "\033[1;92m Battery :\033[1;97m $battery\n"

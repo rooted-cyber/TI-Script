@@ -6,12 +6,10 @@
  ## Facebook page : <b>www.facebook.com/rootedcyber</b>
  
  ## Instagram ID :<b>www.instagram.com/rootedcyber</b>
-
- ## Telegram 1st ID ;<b>https://t.me/rootedcyber</b>
  
  ## Telegram Group ;<b>https://t.me/rootedcyber1</b>
  
- ## Telegram 2nd ID ;<b>https://t.me/rootedcyber2</b>
+ ## Telegram bot;<b>https://t.me/rootedcyber_bot</b>
  
  ## Whatsapp Group :<b>https://chat.whatsapp.com/BdCWDT2g35y67yV8DNHvfa</b>
  
@@ -31,3 +29,4 @@
  $ cd TI-Script
  $ bash TI.sh
  </pre>
+ # TI - to start
