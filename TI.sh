@@ -138,7 +138,7 @@ banner() {
 				cd $PREFIX/var/lib/dpkg > /dev/null 2>&1
 				packk="$(grep -c -e "Package" status)"
 				battery="$(termux-battery-status|grep -e "percentage")"
-				locate="$(termux-location|grep -e "lat" 	-e "long")"
+				#locate="$(termux-location|grep -e "lat" 	-e "long")"
 				printf "\n\n\033[1;92m Your phone name :\033[0m $phone2\n"
 				printf "\033[1;92m Your phone name & modal :\033[0m $phone\n"
 				printf "\033[1;92m Android Version :\033[0m Android version $ver\n"
@@ -150,7 +150,7 @@ banner() {
 				printf "\033[1;92m Time :\033[1;97m $time\n"
 				printf "\033[1;92m Date :\033[1;97m $date\n"
 				printf "\033[1;92m Battery :\033[1;97m $battery\n"
-				printf "\033[1;92m Your location :\033[1;97m $locate\n"
+				#printf "\033[1;92m Your location :\033[1;97m $locate\n"
 				}
 				c2() {
 					echo
