@@ -11,9 +11,7 @@
  
  ## Telegram bot;<b>https://t.me/rootedcyber_bot</b>
  
- ## Whatsapp Group :<b>https://chat.whatsapp.com/BdCWDT2g35y67yV8DNHvfa</b>
- 
- 
+ ## Re-Open Whatsapp Group : https://chat.whatsapp.com/JH8SqlhcIeX0IeC1t2RWmu
 
 <img src="https://github.com/rooted-cyber/TI-Script/raw/master/images/Ti.png" style="width:300px;height:400px;">
 <img src="https://github.com/rooted-cyber/TI-Script/raw/master/images/Ti2.png" style="width:300px;height:400px;">
